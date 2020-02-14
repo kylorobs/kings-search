@@ -35,8 +35,9 @@ export const Title = styled('h3')`
   color: ${COLORS.TEAL};
   text-align: center;
   box-sizing: border-box;
-  font-size: ${SIZES.E4};
-  margin: 0 0 ${SIZES.E4};
+  font-size: ${SIZES.E3};
+  margin: 0;
+  line-height: normal;
   word-wrap: break-word;
 `;
 
@@ -48,6 +49,7 @@ export const Description = styled('div')`
   overflow: hidden;
   position: relative;
   flex-grow: 1;
+  line-height: normal;
   height: 100px;
 
   &::after {
