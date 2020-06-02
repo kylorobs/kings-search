@@ -1,14 +1,14 @@
 import { Result, SearchResultForm } from './types';
 
 export function getForm(result: Result) {
-  if (result.link.startsWith('/organisation')) {
+  if (result.link.startsWith('/group')) {
     return SearchResultForm.StudentGroup;
   }
 
   if (result.link.startsWith('/news')) {
     return SearchResultForm.News;
   }
-  if (result.link.startsWith('/events')) {
+  if (result.link.startsWith('/ents')) {
     return SearchResultForm.Event;
   }
 
