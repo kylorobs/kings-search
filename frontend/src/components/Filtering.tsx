@@ -2,6 +2,8 @@ import React from 'react';
 import styled, {css} from "react-emotion";
 import {COLORS, SIZES} from "../constants";
 import {FilterMap} from "../types";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck, faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 const listStyles = css({
   '@media (min-width: 768px)': {
@@ -18,10 +20,12 @@ const listStyles = css({
 });
 
 const Button = styled('button')<{ active: boolean }>(({ active }) => ({
-  padding: SIZES.E1,
-  color: active ? '#fff' : COLORS.PURPLE,
-  backgroundColor: active ? COLORS.PURPLE : '#fff',
-  border: `3px solid ${COLORS.PURPLE}`,
+  padding: '5px',
+  width: '150px',
+  cursor: 'pointer',
+  color: active ? COLORS.TEAL : COLORS.PURPLE,
+  backgroundColor: 'transparent',
+  borderBottom: `3px solid ${COLORS.PURPLE}`,
   fontSize: SIZES.E3,
 }));
 
@@ -33,12 +37,14 @@ interface FilteringProps {
   toggle(key: string): void;
 }
 
+
 export const Filtering: React.SFC<FilteringProps> = ({ filters, filterMap, toggle }) => (
   <ul className={listStyles}>
     {Object.keys(filters).map((key) => (
       <li key={key}>
         <Button onClick={() => toggle(key)} active={filterMap[key]} type="button">
           {filters[key]}
+          {filterMap[key]? <FontAwesomeIcon icon={faCheck} /> : <FontAwesomeIcon icon={faCoffee} />}
         </Button>
       </li>
     ))}

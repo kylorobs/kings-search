@@ -1,5 +1,5 @@
 export const COLORS = {
-  TEAL: '#61beb1',
+  TEAL: '#14847e',
   PURPLE: '#512971',
   GREY: '#919191',
 };
