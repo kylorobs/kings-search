@@ -6,7 +6,7 @@ import {COLORS, SIZES} from '../constants';
 
 export const Container = styled('li')`
   width: 220px;
-  height: 130px;
+  height: 110px;
   padding: 5px;
   background: #fff;
   position: relative;
@@ -51,7 +51,7 @@ export const InfoBox = styled('div')`
 `;
 
 export const Title = styled('h3')`
-  color: ${COLORS.TEAL};
+  color: ${COLORS.PURPLE};
   text-align: center;
   box-sizing: border-box;
   font-size: ${SIZES.E3};

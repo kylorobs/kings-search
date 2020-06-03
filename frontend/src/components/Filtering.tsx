@@ -3,7 +3,7 @@ import styled, {css} from "react-emotion";
 import {COLORS, SIZES} from "../constants";
 import {FilterMap} from "../types";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faTimes} from '@fortawesome/free-solid-svg-icons';
 
 const listStyles = css({
   '@media (min-width: 768px)': {
@@ -19,6 +19,10 @@ const listStyles = css({
   }
 });
 
+const svgStyle = css`
+  padding-left: 5px;
+`;
+
 const Button = styled('button')<{ active: boolean }>(({ active }) => ({
   padding: '5px',
   width: '150px',
@@ -26,6 +30,9 @@ const Button = styled('button')<{ active: boolean }>(({ active }) => ({
   color: active ? COLORS.TEAL : COLORS.PURPLE,
   backgroundColor: 'transparent',
   borderBottom: `3px solid ${COLORS.PURPLE}`,
+  borderTop: 'none',
+  borderLeft: 'none',
+  borderRight: 'none',
   fontSize: SIZES.E3,
 }));
 
@@ -44,7 +51,7 @@ export const Filtering: React.SFC<FilteringProps> = ({ filters, filterMap, toggl
       <li key={key}>
         <Button onClick={() => toggle(key)} active={filterMap[key]} type="button">
           {filters[key]}
-          {filterMap[key]? <FontAwesomeIcon icon={faCheck} /> : <FontAwesomeIcon icon={faCoffee} />}
+          {filterMap[key]? <FontAwesomeIcon className={svgStyle} color={COLORS.TEAL} icon={faCheck} /> : <FontAwesomeIcon className={svgStyle} color="red" icon={faTimes} />}
         </Button>
       </li>
     ))}

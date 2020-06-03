@@ -1,6 +1,6 @@
 export const COLORS = {
   TEAL: '#14847e',
-  PURPLE: '#512971',
+  PURPLE: '#14847e',
   GREY: '#919191',
 };
 
