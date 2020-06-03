@@ -27,9 +27,10 @@ const Button = styled('button')<{ active: boolean }>(({ active }) => ({
   padding: '5px',
   width: '150px',
   cursor: 'pointer',
-  color: active ? COLORS.TEAL : COLORS.PURPLE,
+  color: COLORS.PURPLE,
   backgroundColor: 'transparent',
-  borderBottom: `3px solid ${COLORS.PURPLE}`,
+  borderBottom: `3px solid`,
+  borderColor: active ? COLORS.PURPLE : COLORS.GREY,
   borderTop: 'none',
   borderLeft: 'none',
   borderRight: 'none',
@@ -51,7 +52,7 @@ export const Filtering: React.SFC<FilteringProps> = ({ filters, filterMap, toggl
       <li key={key}>
         <Button onClick={() => toggle(key)} active={filterMap[key]} type="button">
           {filters[key]}
-          {filterMap[key]? <FontAwesomeIcon className={svgStyle} color={COLORS.TEAL} icon={faCheck} /> : <FontAwesomeIcon className={svgStyle} color="red" icon={faTimes} />}
+          {filterMap[key]? <FontAwesomeIcon className={svgStyle} color={COLORS.TEAL} icon={faCheck} /> : <FontAwesomeIcon className={svgStyle} color={COLORS.GREY} icon={faTimes} />}
         </Button>
       </li>
     ))}
