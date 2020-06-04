@@ -7,7 +7,7 @@ import {COLORS, SIZES} from '../constants';
 export const Container = styled('li')`
   width: 220px;
   min-width: 160px;
-  height: 110px;
+  height: 145px;
   padding: 5px;
   background: #fff;
   position: relative;

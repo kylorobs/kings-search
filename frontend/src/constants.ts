@@ -1,7 +1,9 @@
 export const COLORS = {
   TEAL: '#14847e',
+  LIGHT_TEAL: '#61beb1',
   PURPLE: '#502669',
   GREY: '#919191',
+  DARK: '#444'
 };
 
 export const SIZES = {
