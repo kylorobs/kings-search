@@ -6,7 +6,7 @@ import {COLORS, SIZES} from '../constants';
 
 export const Container = styled('li')`
   width: 220px;
-  min-width: 160px;
+  min-width: 200px;
   height: 145px;
   padding: 5px;
   background: #fff;
@@ -49,7 +49,7 @@ export const InfoBox = styled('div')`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  min-width: 130px;
+  min-width: 180px;
 `;
 
 export const Title = styled('h3')`

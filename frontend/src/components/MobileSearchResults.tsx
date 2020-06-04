@@ -106,31 +106,31 @@ export const MobileSearchResults: React.SFC<MobileSearchResultsProps> = ({
         <div>
           <AreaTitle>Top results</AreaTitle>
           <HLContainer>
-            <HList>{data.top.map(itemRenderer.bind(null, data))}</HList>
+            {data.top.length > 0 && <HList>{data.top.map(itemRenderer.bind(null, data))}</HList>}
           </HLContainer>
         </div>
         <div>
           <AreaTitle>Pages</AreaTitle>
           <HLContainer>
-            <HList>{data.pages.map(itemRenderer.bind(null, data))}</HList>
+            {data.pages.length > 0 && <HList>{data.pages.map(itemRenderer.bind(null, data))}</HList>}
           </HLContainer>
         </div>
         <div>
           <AreaTitle>Student Groups</AreaTitle>
           <HLContainer>
-            <HList>{data.groups.map(itemRenderer.bind(null, data))}</HList>
+            {data.groups.length > 0 && <HList>{data.groups.map(itemRenderer.bind(null, data))}</HList>}
           </HLContainer>
         </div>
         <div>
           <AreaTitle>Events</AreaTitle>
           <HLContainer>
-            <HList>{data.events.map(itemRenderer.bind(null, data))}</HList>
+            {data.events.length > 0 && <HList>{data.events.map(itemRenderer.bind(null, data))}</HList>}
           </HLContainer>
         </div>
         <div>
           <AreaTitle>News</AreaTitle>
           <HLContainer>
-            <HList>{data.news.map(itemRenderer.bind(null, data))}</HList>
+            {data.news.length > 0 && <HList>{data.news.map(itemRenderer.bind(null, data))}</HList>}
           </HLContainer>
         </div>
       </Container>
