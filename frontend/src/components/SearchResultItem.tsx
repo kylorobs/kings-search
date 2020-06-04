@@ -5,7 +5,8 @@ import { formLangs } from '../utils';
 import {COLORS, SIZES} from '../constants';
 
 export const Container = styled('li')`
-  width: 130px;
+  width: 220px;
+  min-width: 160px;
   height: 110px;
   padding: 5px;
   background: #fff;

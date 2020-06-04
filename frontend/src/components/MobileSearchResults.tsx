@@ -8,7 +8,7 @@ import {COLORS, SIZES} from '../constants';
 const AreaTitle = styled('h2')`
   text-align: left;
   font-size: ${SIZES.E3};
-  color: ${COLORS.GREY};
+  color: ${COLORS.PURPLE};
 `;
 
 const HLContainer = styled('div')`
@@ -55,9 +55,13 @@ const HList = styled('ul')`
   margin: 0;
   position: relative;
   padding: 0;
+  list-style-type: none;
+  height: 150px;
+  overflow-y: hidden;
 
   li {
     margin-right: ${SIZES.E3};
+    list-style: none;
 
     &:last-child {
       padding-right: 80px;
