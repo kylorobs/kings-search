@@ -100,39 +100,23 @@ export const MobileSearchResults: React.SFC<MobileSearchResultsProps> = ({
     )
   }
 
+  const renderSearchResults = (field:any, fieldName:any) => (
+    <div>
+      <AreaTitle>{fieldName}</AreaTitle>
+      <HLContainer>
+        <HList>{data[field].map(itemRenderer.bind(null, data))}</HList>
+      </HLContainer>
+    </div>
+  )
+
   return (
     <div className="isMobile">
       <Container>
-        <div>
-          <AreaTitle>Top results</AreaTitle>
-          <HLContainer>
-            {data.top.length > 0 && <HList>{data.top.map(itemRenderer.bind(null, data))}</HList>}
-          </HLContainer>
-        </div>
-        <div>
-          <AreaTitle>Pages</AreaTitle>
-          <HLContainer>
-            {data.pages.length > 0 && <HList>{data.pages.map(itemRenderer.bind(null, data))}</HList>}
-          </HLContainer>
-        </div>
-        <div>
-          <AreaTitle>Student Groups</AreaTitle>
-          <HLContainer>
-            {data.groups.length > 0 && <HList>{data.groups.map(itemRenderer.bind(null, data))}</HList>}
-          </HLContainer>
-        </div>
-        <div>
-          <AreaTitle>Events</AreaTitle>
-          <HLContainer>
-            {data.events.length > 0 && <HList>{data.events.map(itemRenderer.bind(null, data))}</HList>}
-          </HLContainer>
-        </div>
-        <div>
-          <AreaTitle>News</AreaTitle>
-          <HLContainer>
-            {data.news.length > 0 && <HList>{data.news.map(itemRenderer.bind(null, data))}</HList>}
-          </HLContainer>
-        </div>
+          {data.top.length > 0 && renderSearchResults('top', 'Top Resullts')}
+          {data.pages.length > 0 && renderSearchResults('pages', 'Pages')}
+          {data.groups.length > 0 && renderSearchResults('groups', 'Student Groups')}
+          {data.events.length > 0 && renderSearchResults('events', 'Events')}
+          {data.news.length > 0 && renderSearchResults('news', 'News')}
       </Container>
     </div>
   );
