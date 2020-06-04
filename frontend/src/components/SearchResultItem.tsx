@@ -116,9 +116,6 @@ export const Form = styled('div')`
   text-transform: capitalize;;
   font-size: 14px;
 
-  .isMobile & {
-    display: none;
-  }
 `;
 
 interface SearchResultItemProps {
@@ -138,7 +135,6 @@ export const SearchResultItem: React.SFC<SearchResultItemProps> = ({
     <ContainerLink href={link}>
       <InfoBox>
         <Title>{title}</Title>
-        {/* {description && <Description>{description}</Description>} */}
       </InfoBox>
       <Form>{formLangs(form)}</Form>
     </ContainerLink>

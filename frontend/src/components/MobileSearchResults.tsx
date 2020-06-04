@@ -56,7 +56,7 @@ const HList = styled('ul')`
   position: relative;
   padding: 0;
   list-style-type: none;
-  height: 150px;
+  height: 180px;
   overflow-y: hidden;
 
   li {
