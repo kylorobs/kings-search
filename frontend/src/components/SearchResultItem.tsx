@@ -5,7 +5,7 @@ import { formLangs } from '../utils';
 import {COLORS, SIZES} from '../constants';
 
 export const Container = styled('li')`
-  width: 220px;
+  width: 130px;
   height: 110px;
   padding: 5px;
   background: #fff;
@@ -48,6 +48,7 @@ export const InfoBox = styled('div')`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  min-width: 130px;
 `;
 
 export const Title = styled('h3')`

@@ -27,7 +27,7 @@ const Button = styled('button')<{ active: boolean }>(({ active }) => ({
   padding: '5px',
   width: '150px',
   cursor: 'pointer',
-  color: COLORS.PURPLE,
+  color: active ? COLORS.PURPLE : COLORS.GREY,
   backgroundColor: 'transparent',
   borderBottom: `3px solid`,
   borderColor: active ? COLORS.PURPLE : COLORS.GREY,
