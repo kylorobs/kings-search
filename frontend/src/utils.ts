@@ -12,6 +12,10 @@ export function getForm(result: Result) {
     return SearchResultForm.Event;
   }
 
+  if (result.link.startsWith('/organisation')) {
+    return SearchResultForm.Organisation;
+  }
+
   return SearchResultForm.Page;
 }
 
@@ -25,5 +29,8 @@ export const formLangs = (form: SearchResultForm): string => {
       return 'Student Group';
     case SearchResultForm.Page:
       return 'Page';
+    case SearchResultForm.Organisation:
+      return 'Organisation';
+    default: return 'Page'
   }
 };

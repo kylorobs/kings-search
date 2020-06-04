@@ -9,6 +9,7 @@ export enum SearchResultForm {
   Event,
   StudentGroup,
   Page,
+  Organisation
 }
 
 

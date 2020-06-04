@@ -4,6 +4,7 @@ import { SearchResultItem } from './SearchResultItem';
 import { getForm } from '../utils';
 import {FilterMap} from "../types";
 import {SIZES} from "../constants";
+import { SearchResultForm } from '../types';
 
 export const Container = styled('div')`
   font-size: 22px;
@@ -44,15 +45,20 @@ export const SearchResults: React.SFC<SearchResultsProps> = ({ data, filterMap }
   return (
     <Container>
       <List>
-        {data.top.filter((id: string) => filterMap[getForm(data.results[id])]).map((id: string) => (
-          <SearchResultItem
-            key={id}
-            title={data.results[id].title}
-            link={data.results[id].link}
-            description={data.results[id].description}
-            form={getForm(data.results[id])}
-          />
-        ))}
+        {data.top.filter((id: string) => filterMap[getForm(data.results[id])]).map((id: string) => {
+          const form = getForm(data.results[id]);
+          if (form !== SearchResultForm.Organisation){
+            return (
+              <SearchResultItem
+                key={id}
+                title={data.results[id].title}
+                link={data.results[id].link}
+                description={data.results[id].description}
+                form={form}
+              />
+            )
+          }
+        })}
       </List>
     </Container>
   );
