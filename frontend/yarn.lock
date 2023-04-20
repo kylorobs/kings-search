@@ -938,6 +938,11 @@
     "@parcel/utils" "^1.11.0"
     "physical-cpu-count" "^2.0.0"
 
+"@types/node@^18.15.12":
+  "integrity" "sha512-Wha1UwsB3CYdqUm2PPzh/1gujGCNtWVUYF0mB00fJFoR4gTyWTDPjSm+zBF787Ahw8vSGgBja90MkgFwvB86Dg=="
+  "resolved" "https://registry.npmjs.org/@types/node/-/node-18.15.12.tgz"
+  "version" "18.15.12"
+
 "@types/parse-json@^4.0.0":
   "integrity" "sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA=="
   "resolved" "https://registry.npmjs.org/@types/parse-json/-/parse-json-4.0.0.tgz"

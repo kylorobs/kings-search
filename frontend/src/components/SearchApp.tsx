@@ -63,7 +63,7 @@ interface SearchAppState {
 }
 
 export class SearchApp extends React.Component<SearchAppProps, SearchAppState> {
-  timer: number | null;
+  timer: ReturnType<typeof setTimeout> | null;
   constructor(props: SearchAppProps) {
     super(props);
 
@@ -121,7 +121,7 @@ export class SearchApp extends React.Component<SearchAppProps, SearchAppState> {
       // perform request
       this.timer = setTimeout(() =>{
         fetch(
-          `https://8g0l49i7fl.execute-api.eu-west-1.amazonaws.com/api/?q=${query}`,
+          `${process.env.REACT_APP_BACKEND_SERVICE}/?q=${query}`,
         )
           .then((res) => res.json())
           .then((data) => {
