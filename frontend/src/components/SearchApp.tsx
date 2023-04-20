@@ -108,7 +108,7 @@ export class SearchApp extends React.Component<SearchAppProps, SearchAppState> {
   }
 
   handleSearch(query: string) {
-    if (!this.state.queryCache.hasOwnProperty(query)) {
+    if (query && !this.state.queryCache.hasOwnProperty(query)) {
       this.setState(() => ({
         isLoading: true,
         initialView: false,
@@ -152,6 +152,12 @@ export class SearchApp extends React.Component<SearchAppProps, SearchAppState> {
           });
       }, 1000)
 
+    } else if (!query){
+      // clear loading state
+        this.setState((state) => ({
+          ...state,
+          isLoading: false,
+        }));
     } else {
       // Use existing cache
       this.setState((state) => ({
