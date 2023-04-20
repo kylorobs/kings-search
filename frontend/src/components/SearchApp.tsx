@@ -121,7 +121,7 @@ export class SearchApp extends React.Component<SearchAppProps, SearchAppState> {
       // perform request
       this.timer = setTimeout(() =>{
         fetch(
-          `${process.env.REACT_APP_BACKEND_SERVICE}/?q=${query}`,
+          `https://8g0l49i7fl.execute-api.eu-west-1.amazonaws.com/api/?q=${query}`,
         )
           .then((res) => res.json())
           .then((data) => {
