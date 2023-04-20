@@ -63,10 +63,13 @@ interface SearchAppState {
 }
 
 export class SearchApp extends React.Component<SearchAppProps, SearchAppState> {
+  timer: number | null;
   constructor(props: SearchAppProps) {
     super(props);
 
     const query = qs.parse(window.location.search.slice(1)).q || '';
+
+    this.timer = null;
 
     this.state = {
       query,
@@ -99,50 +102,58 @@ export class SearchApp extends React.Component<SearchAppProps, SearchAppState> {
           `${window.location.pathname}?${qs.stringify({ q: nextQuery })}`,
         );
 
-        this.handleSearch(nextQuery, this.state.queryId);
+        this.handleSearch(nextQuery);
       },
     );
   }
 
-  handleSearch(query: string, queryId: number) {
+  handleSearch(query: string) {
     if (!this.state.queryCache.hasOwnProperty(query)) {
       this.setState(() => ({
         isLoading: true,
         initialView: false,
       }));
 
-      console.log(`querying ${query} as ${queryId}`);
-      fetch(
-        `https://8g0l49i7fl.execute-api.eu-west-1.amazonaws.com/api/?q=${query}`,
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          this.setState((state) => {
-            console.log(`LOADED: ${query} as ${queryId}`);
-            const latestQuery = state.query === query;
-
-            if (latestQuery) {
+      // clear out old timer
+      if (this.timer) clearTimeout(this.timer);
+      // Check if search string is less than 3 characters
+      if(query.length < 2) return;
+      // perform request
+      this.timer = setTimeout(() =>{
+        fetch(
+          `https://8g0l49i7fl.execute-api.eu-west-1.amazonaws.com/api/?q=${query}`,
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            this.setState((state) => {
+  
+              const latestQuery = state.query === query;
+  
+              if (latestQuery) {
+                return {
+                  ...state,
+                  isLoading: false,
+                  latestData: data,
+                  queryCache: {
+                    ...state.queryCache,
+                    [query]: data,
+                  },
+                };
+              }
+  
               return {
                 ...state,
-                isLoading: false,
-                latestData: data,
                 queryCache: {
                   ...state.queryCache,
                   [query]: data,
                 },
               };
-            }
-
-            return {
-              ...state,
-              queryCache: {
-                ...state.queryCache,
-                [query]: data,
-              },
-            };
+            });
           });
-        });
+      }, 1000)
+
     } else {
+      // Use existing cache
       this.setState((state) => ({
         latestData: state.queryCache[query],
         isLoading: false,
@@ -163,7 +174,7 @@ export class SearchApp extends React.Component<SearchAppProps, SearchAppState> {
   componentDidMount() {
     const { query } = this.state;
     if (query !== '') {
-      this.handleSearch(query, 0);
+      this.handleSearch(query);
     }
   }
 
